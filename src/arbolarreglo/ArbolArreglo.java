@@ -40,25 +40,49 @@ public class ArbolArreglo {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        String cadena = "Luis Antonio Auz Garcia";
+        String[] arreglo = cadena.split(" ");
+        Stack pila = new Stack();
+        Queue cola = new LinkedList();
+        LinkedList lista = new LinkedList();
+
         arbolab.NodoArbol arbol = null;
         arbolab.NodoArbol nodoNuevo;
         Scanner teclado = new Scanner(System.in);
         int opcion;
 
-        String cadena = "Luis Antonio Auz Garcia";
-        String[] arreglo = cadena.split(" ");
-        Stack pila = new Stack();
-        
         // Pila. Clase preconstruida(Stack).
         //*****************************************
-        for (int i = 0; i < arreglo.length; i++) {
+        /*for (int i = 0; i < arreglo.length; i++) {
             pila.push(arreglo[i]);
         }
         while (!pila.empty()) {
             nodoNuevo = ingresoNodo(pila.pop().toString());
             arbol = arbolab.NodoArbol.insertarArbol(nodoNuevo, arbol);
+        }*/
+        //*****************************************
+        // Cola. Clase preconstruida(Queue).
+        /*for(int i = 0; i < arreglo.length; i++){
+            cola.add(arreglo[i]);
         }
-        //*********************************
+        
+        while(!cola.isEmpty()){
+           nodoNuevo = ingresoNodo(cola.poll().toString());
+           arbol = arbolab.NodoArbol.insertarArbol(nodoNuevo, arbol);
+        }*/
+        //********************************************
+        //Lista. Clase preconstruida(LinkedList).
+        for (int i = 0; i < arreglo.length; i++) {
+            lista.add(arreglo[i]);
+        }
+
+        List lista2 = new ArrayList(lista);
+        Iterator it = lista2.iterator();
+        while (it.hasNext()) {
+            nodoNuevo = ingresoNodo(it.next().toString());
+            arbol = arbolab.NodoArbol.insertarArbol(nodoNuevo, arbol);
+        }
+        //************************************************
         do {
             System.out.println("\nIngrese opción: "
                     + "\n 1. Insertar nodo en árbol"
